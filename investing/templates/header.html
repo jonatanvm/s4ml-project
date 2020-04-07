@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Investing</title>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"
+            integrity="sha256-TQq84xX6vkwR0Qs1qH5ADkP+MvH0W+9E7TdHJsoIQiM=" crossorigin="anonymous"></script>
+
+    <script src="https://kit.fontawesome.com/6db16137ac.js" crossorigin="anonymous"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@600&display=swap" rel="stylesheet">
+
+    <style>
+        h1 {
+            margin: 2rem 0;
+        }
+        .logo {
+            font-family: 'Yanone Kaffeesatz', sans-serif;
+        }
+
+        .logo span {
+            vertical-align: text-bottom;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col text-center">
+            <a href="/" style="text-decoration:none">
+                <h1 class="logo">
+                    <i class="fab fa-invision" style="font-size: 3.4rem"></i>
+                    <span>vest</span>
+                </h1>
+            </a>
+        </div>
+    </div>
+    {% block content %}
+
+
+    {% endblock %}
+    <footer class="pt-5 my-5 border-top">
+        <div class="row">
+            <div class="col-12 col-md">
+                <a href="/" style="text-decoration:none">
+                    <h4 class="logo">
+                        <i class="fab fa-invision" style="font-size: 2rem"></i>
+                        <span>vest</span>
+                    </h4>
+                </a>
+                <small class="d-block mb-3 text-muted">© 2020-2021</small>
+            </div>
+            <div class="col-6 col-md">
+                <h5>Resources</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="text-muted" href="{% url 'readme' %}">Readme</a></li>
+                </ul>
+            </div>
+            <div class="col-6 col-md">
+                <h5>Learning diary</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="text-muted" href="{% url 'study_log' 1 %}">Learning diary 1</a></li>
+                    <li><a class="text-muted" href="{% url 'study_log' 2 %}">Learning diary 2</a></li>
+                    <li><a class="text-muted" href="{% url 'study_log' 3 %}">Learning diary 3</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</div>
+</body>
+
+</html>

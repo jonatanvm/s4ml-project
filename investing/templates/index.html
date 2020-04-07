@@ -1,0 +1,108 @@
+{% extends 'header.html' %}
+{% load render_table from django_tables2 %}
+{% block content %}
+    <style>
+        h2 {
+            margin-top: 2rem;
+        }
+    </style>
+    <div class="row">
+        <div class="col">
+            <canvas id="myChart" style="position: relative; height:30vh; width:100%"></canvas>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <ul class="nav nav-tabs pb-3 mt-5" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                       aria-controls="home" aria-selected="true">Production models</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                       aria-controls="profile" aria-selected="false">Test models</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <div>
+                        <div class="card my-3 d-inline-block">
+                            <div class="card-body text-center">
+                                Total profit: <b><span id="profit"></span>$</b>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% render_table production_table %}
+                </div>
+                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    {% render_table test_table %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-between mb-1">
+        <div class="align-self-end">
+            <a href="{% url 'add_model' %}" class="btn btn-primary">Add model</a>
+        </div>
+    </div>
+    <script>
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            responsive: true,
+            data: {
+                //labels: ['Start', 'End'],
+                datasets: [{
+                    label: 'Bid',
+                    data: [1, 2, 3, 5, 6, 2, 3],
+                    borderWidth: 1,
+                    lineTension: 0,
+                    borderColor: "#40a2eb",
+                }, {
+                    label: 'Ask',
+                    data: [1, 2, 3, 5, 6, 2, 3],
+                    borderWidth: 1,
+                    lineTension: 0,
+                    borderColor: "#f36383",
+                }
+                ]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: false
+                        }
+                    }],
+                    xAxes: [{
+                        type: 'time',
+                        distribution: 'linear'
+                    }]
+                }
+            }
+        });
+
+        function updateGraph() {
+            $.get("/get/data/latest", function (response) {
+                myChart.data.datasets[0].data = response['data']['bid'];
+                myChart.data.datasets[1].data = response['data']['ask'];
+                myChart.update();
+            })
+        }
+
+        function updateProfit() {
+            $.get("/get/profit", function (response) {
+                console.log(response);
+                $('#profit').text(response['profit']);
+            })
+        }
+
+        updateGraph();
+        updateProfit();
+        let graph_updater = setInterval(updateGraph, 5000);
+        let profit_updater = setInterval(updateProfit, 5000);
+        //clearInterval(myVar);
+    </script>
+{% endblock %}

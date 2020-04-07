@@ -1,0 +1,35 @@
+|ERROR|2020-04-07 16:27:31,857|Job "timed_job (trigger: interval[0:00:10], next run at: 2020-04-07 16:27:41 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/jonatan/projects/s4project/venv/lib/python3.7/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "get_price_data.py", line 32, in timed_job
+    predictions = Prediction.objects.filter(predictor=price_obj.id).all()
+AttributeError: 'NoneType' object has no attribute 'id'
+|ERROR|2020-04-07 16:28:05,108|Job "timed_job (trigger: interval[0:00:10], next run at: 2020-04-07 16:28:15 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/jonatan/projects/s4project/venv/lib/python3.7/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "get_price_data.py", line 32, in timed_job
+    predictions = Prediction.objects.filter(predictor=price_obj.id).all()
+AttributeError: 'NoneType' object has no attribute 'id'
+|ERROR|2020-04-07 16:28:15,107|Job "timed_job (trigger: interval[0:00:10], next run at: 2020-04-07 16:28:25 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/jonatan/projects/s4project/venv/lib/python3.7/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "get_price_data.py", line 32, in timed_job
+    predictions = Prediction.objects.filter(predictor=price_obj.id).all()
+AttributeError: 'NoneType' object has no attribute 'id'
+|ERROR|2020-04-07 16:28:25,105|Job "timed_job (trigger: interval[0:00:10], next run at: 2020-04-07 16:28:35 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/jonatan/projects/s4project/venv/lib/python3.7/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "get_price_data.py", line 32, in timed_job
+    predictions = Prediction.objects.filter(predictor=price_obj.id).all()
+AttributeError: 'NoneType' object has no attribute 'id'
+|ERROR|2020-04-07 16:28:35,106|Job "timed_job (trigger: interval[0:00:10], next run at: 2020-04-07 16:28:45 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/jonatan/projects/s4project/venv/lib/python3.7/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "get_price_data.py", line 32, in timed_job
+    predictions = Prediction.objects.filter(predictor=price_obj.id).all()
+AttributeError: 'NoneType' object has no attribute 'id'

@@ -1,0 +1,14 @@
+{% extends 'header.html' %}
+{% load markup_tags %}
+{% block content %}
+    <style>
+        h2 {
+            margin-top: 2rem;
+        }
+    </style>
+    <div class="row justify-content-center">
+        <div class="col-9">
+            {{ study_log|apply_markup:"markdown" }}
+        </div>
+    </div>
+{% endblock %}

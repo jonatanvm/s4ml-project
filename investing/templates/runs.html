@@ -1,0 +1,65 @@
+{% extends 'header.html' %}
+{% load render_table from django_tables2 %}
+{% block content %}
+    <style>
+        h2 {
+            margin-top: 2rem;
+        }
+    </style>
+    {% comment %}<div class="row">
+        <div class="col">
+            <canvas id="myChart" style="position: relative; height:30vh; width:100%"></canvas>
+        </div>
+    </div>{% endcomment %}
+    <h2>Runs</h2>
+    <div class="row">
+        <div class="col">
+            {% render_table table %}
+        </div>
+    </div>
+        {% comment %}var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            responsive: true,
+            data: {
+                //labels: ['Start', 'End'],
+                datasets: [{
+                    label: 'Price',
+                    data: [1, 2, 3, 5, 6, 2, 3],
+                    borderWidth: 1,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: false
+                        }
+                    }],
+                    xAxes: [{
+                        type: 'time',
+                        distribution: 'linear'
+                    }]
+                }
+            }
+        });
+        console.log(myChart.data.datasets[0].data);
+
+        function updateGraph() {
+            $.get("/get/data/latest", function (response) {
+                console.log(response['data']);
+                myChart.data.datasets[0].data = response['data'];
+                myChart.update();
+            })
+        }
+
+        updateGraph();
+        let myVar = setInterval(updateGraph, 5000);
+        //clearInterval(myVar);{% endcomment %}
+    {#</script>#}
+    <script>
+        $('ul.pagination li').addClass('page-item');
+        $('ul.pagination li a').addClass('page-link');
+    </script>
+{% endblock %}
