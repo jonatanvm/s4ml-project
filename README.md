@@ -1,7 +1,12 @@
 # Course repository for: Special Course in Computer Science: Advanced Topics in Systems for Big Data and Machine Learning
 
-
 This project includes the course project and [study logs](https://github.com/jonatanvm/s4ml-project/tree/master/uploads/study-logs) done during the course.
+
+### Description
+
+This project is a demo of a Django server which pulls trading data such as EUR/USD prices using the FXCM API and allows users to create models to run on the data. The models have an option to be either "test" or "production" models, where the idea is that the production models would actually trade.  
+
+The project is meant to be used, and is built for the Heroku platform, where various of the subtasks are partitioned to their own subtasks. Heroku would allow for the dynamic changing of the subprocesses processing capabilities. Heroku would also offer free SSL security and allow users to access the platform on the web.  
 
 ### How to run
 
