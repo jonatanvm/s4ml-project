@@ -12,7 +12,7 @@ django-heroku==0.3.1
 fxcmpy==1.2.6
 gunicorn==20.0.4
 idna==2.9
-numpy==1.18.2
+numpy==1.22.0
 pandas==1.0.3
 psycopg2==2.8.5
 PySocks==1.7.1
